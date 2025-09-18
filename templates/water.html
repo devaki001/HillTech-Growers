@@ -1,0 +1,71 @@
+{% extends "base.html" %}
+
+{% block title %}Water Requirement Calculator{% endblock %}
+
+{% block content %}
+<div class="dashboard-container">
+    <header class="dashboard-header">
+        <h1>Water Requirement Calculator</h1>
+        <p>Choose your crop and calculate the total water required</p>
+    </header>
+
+    <main class="dashboard-main">
+        <div class="card crop-card">
+            <div class="card-header">
+                <h3>Select Crop</h3>
+                <div class="card-icon">
+                    <i class="fas fa-seedling"></i>
+                </div>
+            </div>
+            <div class="card-content">
+                <form method="POST" action="{{ url_for('water_calc') }}">
+                    <label for="crop"><strong>Crop:</strong></label>
+                    <select name="crop" id="crop" class="form-control" required>
+                        <option value="">-- Select Crop --</option>
+                        {% for crop in crop_options %}
+                            <option value="{{ crop }}" {% if crop == selected_crop %}selected{% endif %}>
+                                {{ crop }}
+                            </option>
+                        {% endfor %}
+                    </select>
+                    <br>
+
+                    <label for="acres"><strong>Land Size (acres):</strong></label>
+                    <input type="number" step="0.01" name="acres" id="acres" class="form-control" required>
+                    <br>
+
+                    <button type="submit" class="btn btn-success">Calculate Water</button>
+                </form>
+
+                {% if result %}
+                    <div class="card result-card" style="margin-top: 20px;">
+                        <div class="card-header">
+                            <h3>Result</h3>
+                        </div>
+                        <div class="card-content">
+                            <table class="table table-bordered">
+                                <thead>
+                                    <tr>
+                                        <th>Crop</th>
+                                        <th>Land Size (acres)</th>
+                                        <th>Water Requirement (mm)</th>
+                                        <th>Total Water Required (litres)</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>{{ selected_crop }}</td>
+                                        <td>{{ request.form['acres'] }}</td>
+                                        <td>{{ water_mm }}</td>
+                                        <td><strong>{{ result }}</strong></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+    </main>
+</div>
+{% endblock %}

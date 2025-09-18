@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Smart Agriculture - Register</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: url("https://wallpaperbat.com/img/319677-agriculture-desktop-wallpaper.jpg") no-repeat center center fixed;
+      background-size: cover;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .register-container {
+      display: flex;
+      width: 850px;
+      height: 500px;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 15px;
+      overflow: hidden;
+      box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.3);
+      backdrop-filter: blur(10px);
+    }
+
+    /* Left Panel */
+    .left-panel {
+      flex: 1;
+      background: rgba(0, 128, 0, 0.85);
+      color: white;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+    }
+
+    .left-panel h2 {
+      font-size: 28px;
+      margin-bottom: 10px;
+    }
+
+    .left-panel p {
+      font-size: 16px;
+      margin: 0;
+    }
+
+    /* Right Panel */
+    .right-panel {
+      flex: 1.5;
+      background: rgba(255, 255, 255, 0.15);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 40px;
+    }
+
+    .right-panel h2 {
+      margin-bottom: 20px;
+      color: white;
+    }
+
+    .form-group {
+      width: 100%;
+      margin-bottom: 15px;
+    }
+
+    .form-group input {
+      width: 100%;
+      padding: 12px;
+      border: none;
+      border-radius: 8px;
+      outline: none;
+      background: rgba(255, 255, 255, 0.7);
+    }
+
+    .btn {
+      width: 100%;
+      padding: 12px;
+      background: green;
+      color: white;
+      font-size: 16px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+
+    .btn:hover {
+      background: darkgreen;
+    }
+
+    .extra {
+      margin-top: 15px;
+      color: white;
+      font-size: 14px;
+    }
+
+    .extra a {
+      color: #00ff99;
+      text-decoration: none;
+    }
+
+    /* Flash Messages */
+    .success { color: lightgreen; margin-bottom: 10px; }
+    .error { color: #ff6666; margin-bottom: 10px; }
+
+    /* Inline Error */
+    .inline-error {
+      color: #ff6666;
+      font-size: 13px;
+      margin-top: 5px;
+      text-align: left;
+    }
+  </style>
+</head>
+<body>
+  <div class="register-container">
+    <!-- Left Panel -->
+    <div class="left-panel">
+      <h2>🌱 Smart Agriculture</h2>
+      <p>Grow smart, live better</p>
+    </div>
+
+    <!-- Right Panel -->
+    <div class="right-panel">
+      <h2>Create Account</h2>
+
+      <!-- Flash messages -->
+      {% with messages = get_flashed_messages(with_categories=true) %}
+        {% for category, message in messages %}
+          <p class="{% if category=='success' %}success{% else %}error{% endif %}">{{ message }}</p>
+        {% endfor %}
+      {% endwith %}
+
+      <form method="POST" onsubmit="return validateForm()">
+        <div class="form-group">
+          <input type="text" id="userid" name="userid" placeholder="User ID" required>
+          <div id="userid-error" class="inline-error"></div>
+        </div>
+        <div class="form-group">
+          <input type="text" name="name" placeholder="Full Name" required>
+        </div>
+        <div class="form-group">
+          <input type="password" name="password" placeholder="Password" required>
+        </div>
+        <div class="form-group">
+          <input type="text" id="phone" name="phone" placeholder="Phone Number" required>
+          <div id="phone-error" class="inline-error"></div>
+        </div>
+        <button type="submit" class="btn">Register</button>
+      </form>
+
+      <div class="extra">
+        Already have an account? <a href="/login">Login</a>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function validateForm() {
+      let userid = document.getElementById("userid").value.trim();
+      let phone = document.getElementById("phone").value.trim();
+      let useridError = document.getElementById("userid-error");
+      let phoneError = document.getElementById("phone-error");
+      let valid = true;
+
+      useridError.textContent = "";
+      phoneError.textContent = "";
+
+      // User ID must be numbers only
+      if (!/^\d+$/.test(userid)) {
+        useridError.textContent = "User ID must contain only numbers.";
+        valid = false;
+      }
+
+      // Phone must be 10 digits
+      if (!/^\d{10}$/.test(phone)) {
+        phoneError.textContent = "Phone number must be exactly 10 digits.";
+        valid = false;
+      }
+
+      return valid;
+    }
+  </script>
+</body>
+</html>

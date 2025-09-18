@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>{{ crop['Crop'] }} Details</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <style>
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #f0f9f0, #e8f5e8);
+      min-height: 100vh; color: #2d5016;
+    }
+    .container { max-width:1200px; margin:0 auto; padding:2rem; }
+    .header { display:flex; align-items:center; justify-content:space-between; margin-bottom:2rem; gap:1rem; }
+    .header h1 {
+      font-size: 2.2rem; font-weight: 800; line-height: 1.1;
+      background: linear-gradient(135deg, #4a7c59, #5d8a6b);
+      color: transparent; background-clip: text; -webkit-background-clip: text;
+      display:flex; align-items:center; gap:.75rem;
+    }
+    .btn {
+      padding:.7rem 1.25rem; border:none; border-radius:10px;
+      font-weight:600; cursor:pointer; display:inline-flex; align-items:center; gap:.5rem;
+      box-shadow:0 4px 8px rgba(0,0,0,.1); text-decoration:none;
+    }
+    .btn-primary { background:#4a7c59; color:#fff; }
+    .btn-primary:hover { filter:brightness(1.05); }
+    .grid { display:grid; gap:2rem; margin-bottom:2rem; }
+    .grid-2 { grid-template-columns: repeat(auto-fit, minmax(380px, 1fr)); }
+    .grid-1 { grid-template-columns: 1fr; }
+    .card { background:#fff; border-radius:16px; padding:1.5rem 1.75rem;
+      box-shadow:0 4px 20px rgba(74,124,89,0.1);
+      border-left:6px solid; transition:all .3s; position:relative; overflow:hidden; }
+    .card:hover { transform: translateY(-3px); box-shadow:0 8px 26px rgba(74,124,89,0.15); }
+    .card-success{ border-left-color:#4a7c59; }
+    .card-info{ border-left-color:#3b82f6; }
+    .card-warning{ border-left-color:#f59e0b; }
+    .card-header{ display:flex; align-items:center; gap:.6rem; margin-bottom:1rem; font-size:1.2rem; font-weight:700; }
+    .detail-row{ display:flex; justify-content:space-between; align-items:center; padding:.55rem 0; border-bottom:1px solid #f3f4f6; }
+    .detail-row:last-child{ border-bottom:none; }
+    .detail-label{ color:#6b7280; font-weight:500; }
+    .detail-value{ font-weight:650; color:#1f2937; }
+    .detail-value.highlight{ color:#4a7c59; }
+    .calc-form { display:grid; gap:.75rem; }
+    .form-control { width:100%; padding:.6rem .75rem; border:1px solid #e5e7eb; border-radius:10px; font-size:1rem; }
+    .btn-success{ background:linear-gradient(135deg, #059669, #10b981); color:#fff; }
+    .btn-danger{ background:linear-gradient(135deg, #dc2626, #ef4444); color:#fff; }
+    .two-col { display:grid; grid-template-columns: 1fr auto; gap:.75rem; align-items:end; }
+    .badge { display:inline-block; padding:.25rem .6rem; background:#e8f3ec; color:#376347; border-radius:999px; font-size:.85rem; font-weight:700; }
+    table { width:100%; border-collapse:collapse; margin-top:.6rem; }
+    th, td { padding:.7rem .6rem; text-align:left; border-bottom:1px solid #eee; }
+    th { background:#f6f7f8; font-weight:700; }
+  </style>
+</head>
+<body>
+<div class="container">
+
+  <!-- Title + Back button -->
+  <div class="header">
+    <h1 id="crop-name">
+      <i class="fas fa-seedling" style="color:#4a7c59;"></i> {{ crop['Crop'] }} Details
+    </h1>
+    <a href="{{ url_for('dashboard') }}" class="btn btn-primary">
+      <i class="fas fa-arrow-left"></i> Back to Dashboard
+    </a>
+  </div>
+
+  <div class="grid grid-2">
+    <!-- Crop Information -->
+    <div class="card card-success">
+      <div class="card-header"><i class="fas fa-leaf"></i> Crop Information</div>
+      <div class="detail-row"><span class="detail-label">Soil Type:</span><span class="detail-value">{{ crop['Soil Type'] }}</span></div>
+      <div class="detail-row"><span class="detail-label">Soil Moisture:</span><span class="detail-value">{{ crop['Soil Moisture'] }}</span></div>
+      <div class="detail-row"><span class="detail-label">Temperature Range:</span><span class="detail-value">{{ crop['Min Temp'] }} – {{ crop['Max temp'] }} °C</span></div>
+      <div class="detail-row"><span class="detail-label">Humidity Range:</span><span class="detail-value">{{ crop['Min Humidity'] }} – {{ crop['Max Humidity'] }} %</span></div>
+      <div class="detail-row"><span class="detail-label">Crop Duration:</span><span class="detail-value highlight">{{ crop['Crop Duration (days)'] }} days</span></div>
+      <div class="detail-row"><span class="detail-label">Total Water (mm):</span><span class="detail-value badge">{{ water_mm }}</span></div>
+    </div>
+
+
+
+    <!-- Water & Nutrition + INLINE CALCULATOR -->
+    <div class="card card-info">
+      <div class="card-header"><i class="fas fa-tint"></i> Water &amp; Nutrition</div>
+      <div class="detail-row">
+  <span class="detail-label">Daily Water:</span>
+  <span class="detail-value">
+    {{ crop['Daily Water (L/ha/day)'] }} L/ha/day
+  </span>
+</div>
+
+
+      <!-- Inline calculator -->
+<div style="margin-top:1rem;">
+  <div class="card-header" style="margin:0 0 .5rem 0;">
+    <i class="fas fa-calculator"></i> Water Calculator
+  </div>
+
+  <form method="POST" class="calc-form" action="{{ url_for('crop_detail', crop_name=crop['Crop']) }}">
+    <div class="two-col">
+      <div>
+        <label for="acres"><strong>Land Size (acres)</strong></label>
+        <input type="number" step="0.01" min="0" class="form-control" id="acres" name="acres"
+               value="{{ acres if acres is not none }}">
+      </div>
+      <button type="submit" class="btn btn-success">
+        <i class="fas fa-equals"></i> Calculate
+      </button>
+    </div>
+  </form>
+
+  {% if total_litres is not none %}
+    <table>
+      <thead>
+        <tr>
+          <th>Crop</th>
+          <th>Land Size (acres)</th>
+          <th>Water (mm)</th>
+          <th>Total Water (litres)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>{{ crop['Crop'] }}</td>
+          <td>{{ acres }}</td>
+          <!-- Show 0 when acres <= 0 -->
+          <td>{{ water_mm_display if water_mm_display is not none else 0 }}</td>
+          <td><strong>{{ (total_litres | round(0)) | int }}</strong></td>
+        </tr>
+      </tbody>
+    </table>
+    <p style="margin-top:.4rem; color:#4b5563; font-size:.95rem;">
+      (1&nbsp;mm = 1&nbsp;L/m²; 1&nbsp;acre = 4046.86&nbsp;m²)
+    </p>
+  {% endif %}
+</div>
+
+
+      <!-- Simple fertilizer/pesticide section -->
+      <div style="margin-top:1.25rem;">
+        <div style="display:flex; gap:.6rem; margin-bottom:.6rem;">
+          <i class="fas fa-flask" style="color:#f59e0b;"></i>
+          <div>
+            <p style="font-weight:600; color:#6b7280; margin-bottom:.2rem;">Fertilizers</p>
+            <p>{{ crop['fertilizers'] }}</p>
+          </div>
+        </div>
+        <div style="display:flex; gap:.6rem;">
+          <i class="fas fa-shield-alt" style="color:#f59e0b;"></i>
+          <div>
+            <p style="font-weight:600; color:#6b7280; margin-bottom:.2rem;">Pesticides</p>
+            <p>{{ crop['Pesticides'] }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+      <!-- Profit Calculator -->
+<div class="card card-warning">
+  <div class="card-header">
+    <i class="fas fa-sack-dollar"></i> Profit Calculator
+  </div>
+
+  <!-- Dataset-sourced facts -->
+  <div class="detail-row">
+    <span class="detail-label">Dataset Yield (kg/acre):</span>
+    <span class="detail-value">{{ yield_kg_per_acre }}</span>
+  </div>
+  <div class="detail-row">
+    <span class="detail-label">Dataset Price (₹/kg):</span>
+    <span class="detail-value">{{ price }}</span>
+  </div>
+
+  <form method="POST" class="calc-form" action="{{ url_for('crop_detail', crop_name=crop['Crop']) }}">
+    <input type="hidden" name="which" value="profit" />
+
+    <div class="two-col">
+      <div>
+        <label for="acres_profit"><strong>Land Size (acres)</strong></label>
+        <input type="number" step="0.01" min="0"
+               class="form-control" id="acres_profit" name="acres_profit"
+               value="{{ acres_profit if acres_profit is not none }}">
+      </div>
+      <button type="submit" class="btn btn-success">
+        <i class="fas fa-equals"></i> Calculate
+      </button>
+    </div>
+
+    <div>
+      <label for="other_expenses" style="margin-top:.5rem;"><strong>Other Expenses (total ₹)</strong></label>
+      <input type="number" step="0.01" min="0"
+             class="form-control" id="other_expenses" name="other_expenses"
+             value="{{ other_expenses if other_expenses is not none else 0 }}">
+    </div>
+  </form>
+
+  {% if profit is not none %}
+    <table>
+      <thead>
+        <tr>
+          <th>Crop</th>
+          <th>Acres</th>
+          <th>Yield (kg/acre)</th>
+          <th>Price (₹/kg)</th>
+          <th>Revenue (₹)</th>
+          <th>Other Expenses (₹)</th>
+          <th><strong>Profit (₹)</strong></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>{{ crop['Crop'] }}</td>
+          <td>{{ acres_profit }}</td>
+          <td>{{ yield_kg_per_acre }}</td>
+          <td>{{ price }}</td>
+          <td><strong>{{ '{:,.0f}'.format(revenue) }}</strong></td>
+          <td>{{ '{:,.0f}'.format(other_expenses or 0) }}</td>
+          <td class="detail-value highlight"><strong>{{ '{:,.0f}'.format(profit) }}</strong></td>
+        </tr>
+      </tbody>
+    </table>
+  {% endif %}
+</div>
+  </div>
+
+
+</div>
+
+
+
+
+
+
+
+</body>
+</html>

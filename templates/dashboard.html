@@ -1,0 +1,357 @@
+{% extends "base.html" %}
+{% block title %}Dashboard - Smart Agriculture{% endblock %}
+
+{% block content %}
+<div class="dashboard-container">
+  <header class="dashboard-header">
+    <div class="header-content">
+      <div class="header-left">
+        <div class="logo"><i class="fas fa-mountain"></i></div>
+        <div class="header-text">
+          <h1 data-translate="smart_agriculture_dashboard">HillTech Growers</h1>
+          <p data-translate="hilly_monitoring">Hilly Area Monitoring System</p>
+        </div>
+      </div>
+      <div class="header-right">
+        <div class="current-time">{{ data.current_time }}</div>
+        <a href="{{ url_for('logout') }}" class="logout-btn">
+          <i class="fas fa-sign-out-alt"></i> <span data-translate="logout">Logout</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main class="dashboard-main">
+    <div class="dashboard-grid">
+
+      <!-- Crop Recommendations -->
+      <div class="card crop-card">
+        <div class="card-header">
+          <h3 data-translate="crop_recommendations">Crop Recommendations</h3>
+          <div class="card-icon"><i class="fas fa-leaf"></i></div>
+        </div>
+        <div class="card-content">
+          <form method="POST" action="{{ url_for('dashboard') }}">
+            <label for="soil_type"><strong data-translate="select_soil_type">Select Soil Type:</strong></label>
+            <select name="soil_type" id="soil_type" class="form-control">
+              <option value="" data-translate="select_soil_type_placeholder">-- Select Soil Type --</option>
+              {% set soil_categories = ["Clayey", "Well-drained", "Loamy", "Sandy", "Medium fertility", "High organic", "Alluvial"] %}
+              {% for soil in soil_categories %}
+                <option value="{{ soil }}" {% if soil == selected_soil %}selected{% endif %}>{{ soil }}</option>
+              {% endfor %}
+            </select>
+            <br>
+            <button type="submit" class="btn btn-success" data-translate="recommend_crops">Recommend Crops</button>
+          </form>
+
+          <div class="data-row">
+            <span data-translate="soil_moisture_category">Soil Moisture Category</span>
+            <span class="value">{{ data.soil_category }}</span>
+          </div>
+            {% if data.soil %}
+  <div class="data-row">
+    <span>Used for filter</span>
+    <span class="value">
+      T={{ data.soil.temperature }}°C, H={{ data.soil.humidity }}%, M={{ data.soil.moisture }}%
+    </span>
+  </div>
+{% endif %}
+
+
+          {% if selected_soil %}
+            {% if data.soil is none %}
+  <div class="alert alert-warning" role="alert" style="margin:8px 0;">
+    No live sensor data available. Connect your ESP32 or check <code>{{ ESP32_ENDPOINT or '/api/esp32/data' }}</code>.
+  </div>
+{% endif %}
+
+            {% if data.crops %}
+              <ul class="crop-list">
+                {% for crop in data.crops %}
+                  <li class="crop-item">
+                    <div class="crop-info">
+                      <strong>
+                        <a href="{{ url_for('crop_detail', crop_name=crop['Crop']) }}">
+                          {{ crop["Crop"] }}
+                        </a>
+                      </strong><br>
+                      <small>Soil: {{ crop["Soil Type"] }} | Moisture: {{ crop["Soil Moisture"] }}</small><br>
+                      <small>Temperature: {{ crop["Min Temp"] }} - {{ crop["Max temp"] }} °C</small><br>
+                      <small>Humidity: {{ crop["Min Humidity"] }} - {{ crop["Max Humidity"] }} %</small><br>
+                      <small>Water Requirement: {{ crop["Total Water ( mm )"] }} mm</small>
+                    </div>
+                    <div class="crop-actions">
+                      <button class="add-crop-btn"
+                              data-crop="{{ crop['Crop'] }}"
+                              data-soil="{{ crop['Soil Type'] }}"
+                              data-water="{{ crop['Total Water ( mm )'] }}"
+                              onclick="addCropToIrrigation(this.dataset.crop, this.dataset.soil, this.dataset.water)">
+                        <i class="fas fa-plus"></i>
+                        <span data-translate="add_crop">Add</span>
+                      </button>
+                    </div>
+                  </li>
+                {% endfor %}
+              </ul>
+            {% else %}
+              <p data-translate="no_crops_found">No crops found for <strong>{{ selected_soil }}</strong> and current conditions.</p>
+            {% endif %}
+          {% else %}
+            <p data-translate="select_soil_type_instruction">Please select a soil type above to see recommended crops.</p>
+          {% endif %}
+        </div>
+      </div>
+
+      <!-- My Crop Irrigation -->
+      <div class="card my-crops-card">
+        <div class="card-header">
+          <h3 data-translate="my_crop_irrigation">My Crop Irrigation</h3>
+          <div class="card-icon"><i class="fas fa-seedling"></i></div>
+        </div>
+        <div class="card-content">
+          <div id="my-crops-list">
+            <p data-translate="loading_crops">Loading your crops...</p>
+          </div>
+          <div class="crop-actions">
+            <button id="refresh-crops-btn" class="btn btn-primary">
+              <i class="fas fa-sync"></i>
+              <span data-translate="refresh">Refresh</span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+<!--      &lt;!&ndash; Control Panel &ndash;&gt;-->
+<!--      <div class="card control-card">-->
+<!--        <div class="card-header">-->
+<!--          <h3 data-translate="water_flow_control">Water Flow Control</h3>-->
+<!--          <div class="card-icon"><i class="fas fa-cogs"></i></div>-->
+<!--        </div>-->
+<!--        <div class="card-content">-->
+<!--          <div class="control-status">-->
+<!--            <p data-translate="current_status">Current Status</p>-->
+<!--            <span id="flow-status" class="status-indicator status-stopped" data-translate="stopped">STOPPED</span>-->
+<!--          </div>-->
+<!--          <div class="control-buttons">-->
+<!--            <button id="start-btn" class="control-btn start-btn">-->
+<!--              <i class="fas fa-play"></i>-->
+<!--              <span data-translate="start">Start</span>-->
+<!--            </button>-->
+<!--            <button id="stop-btn" class="control-btn stop-btn" disabled>-->
+<!--              <i class="fas fa-stop"></i>-->
+<!--              <span data-translate="stop">Stop</span>-->
+<!--            </button>-->
+<!--          </div>-->
+<!--        </div>-->
+<!--      </div>-->
+
+<!-- Soil Data -->
+<div class="card soil-card">
+  <div class="card-header">
+    <h3 data-translate="soil_data">Soil Data</h3>
+    <div class="card-icon"><i class="fas fa-seedling"></i></div>
+  </div>
+  <div class="card-content">
+    <div class="data-row"><span>Soil moisture(%)</span><span class="value" id="soil_pct">—</span></div>
+<!--    <div class="data-row"><span>Water level (cm)</span><span class="value" id="ultrasonic_cm">—</span></div>-->
+    <div class="data-row"><span>Temperature(°C)</span><span class="value" id="temp_c">—</span></div>
+    <div class="data-row"><span>Humidity(%)</span><span class="value" id="humidity_pct">—</span></div>
+    <div class="data-row"><span>Pump</span><span class="value" id="pump_on">OFF</span></div>
+    <div class="data-row"><span>Mode</span><span class="value" id="auto_mode">MANUAL</span></div>
+  </div>
+</div>
+
+
+
+      <!-- Weather -->
+      <div class="card weather-card">
+        <div class="card-header">
+          <h3 data-translate="weather_data">Weather Data</h3>
+          <div class="card-icon"><i class="fas fa-cloud-sun"></i></div>
+        </div>
+        <div class="card-content">
+          <div class="data-row"><span data-translate="temperature">Temperature</span><span class="value">{{ data.weather.temperature }}°C</span></div>
+          <div class="data-row"><span data-translate="humidity">Humidity</span><span class="value">{{ data.weather.humidity }}%</span></div>
+          <div class="data-row"><span data-translate="rainfall">Rainfall</span><span class="value">{{ data.weather.rainfall }}mm</span></div>
+          <div class="data-row"><span data-translate="wind_speed">Wind Speed</span><span class="value">{{ data.weather.wind_speed }} km/h</span></div>
+        </div>
+      </div>
+
+      <!-- Tank level -->
+      <div class="card tank-card">
+        <div class="card-header">
+          <h3 data-translate="water_tank_level">Water Tank Level</h3>
+          <div class="card-icon"><i class="fas fa-water"></i></div>
+        </div>
+        <div class="card-content">
+          <div class="tank-level-display">
+            <div class="circular-progress">
+<div class="progress-circle"
+     data-percentage="{{ (data.tank_level or 0)|round(0, 'common')|int }}">
+  <span class="percentage">{{ (data.tank_level or 0)|round(0, 'common')|int }}%</span>
+</div>
+
+
+            </div>
+          </div>
+          <div class="tank-info">
+            <p data-translate="capacity">Capacity: <span id="tank-capacity">702</span> cm³</p>
+<p class="data-row">
+  <span>Water height (cm)</span>
+  <span class="value" id="ultrasonic_cm">—</span>
+</p>
+
+<p class="data-row">
+  <span>Volume (cm³)</span>
+  <span class="value" id="tank_volume_cm3">—</span>
+</p>
+
+
+
+              <div class="sensor-status">
+              <span class="sensor-indicator" id="sensor-indicator">●</span>
+              <span class="sensor-text">Sensor Active</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+      <!-- Navigation / Alerts -->
+      <div class="card navigation-card">
+        <div class="card-header">
+          <h3 data-translate="alerts_updates">Alerts & Updates</h3>
+          <div class="card-icon"><i class="fas fa-chart-line"></i></div>
+        </div>
+        <div class="card-content">
+          <p data-translate="view_analytics">View detailed analytics and alerts</p>
+          <div class="nav-buttons">
+            <a href="{{ url_for('alerts') }}" class="nav-btn alerts-btn" data-translate="alerts_updates">Alerts &amp; Updates</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </main>
+</div>
+{% endblock %}
+
+{% block scripts %}
+
+<script>
+// ----- Tank geometry (your constants) -----
+const TANK_H1_CM   = 9.5;     // total internal height in cm
+const TANK_RADIUS  = 4.85;    // radius in cm
+const PI           = 22/7;    // as requested
+
+// Helper: safe text setter
+function setText(id, v) {
+  const el = document.getElementById(id);
+  if (el) el.textContent = (v ?? "—");
+}
+
+function updateGauge(percent) {
+  const raw = Number(percent) || 0;
+  const clamped = Math.max(0, Math.min(100, raw));
+  const rounded = Math.round(clamped);          // <- round to whole number
+
+  const progressCircle = document.querySelector('.progress-circle');
+  const percentageSpan = document.querySelector('.percentage');
+  if (!progressCircle) return;
+
+  progressCircle.dataset.percentage = rounded;
+  const circumference = 2 * Math.PI * 45;
+  const offset = circumference - (rounded / 100) * circumference;
+
+  const oldStyle = document.querySelector('style[data-tank-sensor]');
+  if (oldStyle) oldStyle.remove();
+  const style = document.createElement('style');
+  style.setAttribute('data-tank-sensor', 'true');
+  style.textContent = `
+    .progress-circle::before { stroke-dasharray: ${circumference}; stroke-dashoffset: ${offset}; }
+  `;
+  document.head.appendChild(style);
+
+  if (percentageSpan) percentageSpan.textContent = `${rounded}%`; // <- rounded label
+}
+
+
+// Compute volume/height from ultrasonic & render
+function computeAndRenderFromUltrasonic(ultraVal) {
+  const u = Number(ultraVal);
+  if (!isFinite(u)) return;
+
+  // Show raw ultrasonic distance (cm)
+  setText("ultrasonic_cm", u.toFixed(2));
+
+  // Water height = h1 - u (clamp 0..h1)
+  const H = Math.max(0, Math.min(TANK_H1_CM, TANK_H1_CM - u));
+
+  // Volumes
+  const baseArea = PI * TANK_RADIUS * TANK_RADIUS;       // π r²  (cm²)
+  const vol_cm3  = baseArea * H;                          // cm³
+  const vol_l    = vol_cm3 / 1000;                        // L
+  const cap_cm3  = baseArea * TANK_H1_CM;                 // capacity in cm³
+  const percent  = (H / TANK_H1_CM) * 100;                // fill %
+
+  // Update UI (only if those elements exist)
+  setText("water_height_cm", H.toFixed(2));
+  setText("tank_volume_cm3", Math.round(vol_cm3));
+  setText("tank_volume_l",   vol_l.toFixed(2));
+  setText("tank-capacity",   Math.round(cap_cm3));
+
+  updateGauge(percent);
+}
+
+// ESP32 live polling (server proxy)
+const ESP32_ENDPOINT = "/api/esp32/data";
+
+async function pollESP32(){
+  try{
+    const r = await fetch(ESP32_ENDPOINT, { cache: "no-store" });
+    if (!r.ok) throw new Error(`${r.status} ${r.statusText}`);
+
+    // Some firmwares return text/plain JSON. Handle both.
+    let j;
+    try { j = await r.json(); }
+    catch { j = JSON.parse(await r.text()); }
+
+    // Soil & env fields (update if those spans exist)
+    setText("soil_raw",         j.soil_raw);
+    setText("soil_pct",         j.soil_pct);
+    setText("temp_c",           j.temp_c);
+    setText("humidity_pct",     j.humidity_pct);
+    setText("pump_on",          j.pump_on ? "ON" : "OFF");
+    setText("auto_mode",        j.auto_mode ? "AUTO" : "MANUAL");
+    setText("soil_threshold_raw", j.soil_threshold_raw);
+    setText("esp32_ip",         j.ip);
+    setText("esp32_uptime",     j.uptime_s);
+
+    // Tank calc from ultrasonic (the key line)
+    computeAndRenderFromUltrasonic(j.ultrasonic_cm);
+
+  } catch(e){
+    console.log("ESP32 poll failed:", e);
+  }
+}
+
+// Initialize gauge once (based on initial data-percentage)
+document.addEventListener('DOMContentLoaded', function() {
+  const progressCircle = document.querySelector('.progress-circle');
+  if (progressCircle) {
+    const initial = parseFloat(progressCircle.dataset.percentage || 0);
+    updateGauge(initial);
+  }
+
+  // Start polling ESP32 every second
+  pollESP32();
+  setInterval(pollESP32, 1000);
+});
+
+// NOTE: We are NOT using /api/tank_sensor_data anymore to drive the tank.
+// If you still call updateTankLevelFromSensor() elsewhere, remove/disable it
+// so the gauge isn't overridden by the simulated tank endpoint.
+</script>
+
+
+{% endblock %}

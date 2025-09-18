@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Registered Users</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f4f4f4;
+      padding: 30px;
+    }
+    table {
+      border-collapse: collapse;
+      width: 70%;
+      margin: auto;
+      background: white;
+      box-shadow: 0px 5px 15px rgba(0,0,0,0.1);
+    }
+    th, td {
+      padding: 12px;
+      text-align: center;
+      border-bottom: 1px solid #ddd;
+    }
+    th {
+      background: green;
+      color: white;
+    }
+    tr:hover {
+      background: #f1f1f1;
+    }
+    h2 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+  </style>
+</head>
+<body>
+  <h2>🌱 Registered Users</h2>
+  <table>
+    <tr>
+      <th>User ID</th>
+      <th>Name</th>
+      <th>Phone</th>
+    </tr>
+    {% for user in users %}
+    <tr>
+      <td>{{ user[0] }}</td>
+      <td>{{ user[1] }}</td>
+      <td>{{ user[2] }}</td>
+    </tr>
+    {% endfor %}
+  </table>
+</body>
+</html>

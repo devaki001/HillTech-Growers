@@ -1,0 +1,612 @@
+Sl.no,Crop,Minimum Practical Area (acre),Total Water ( mm ),Total Water (Liters/ha),Total Water (USGallons/ha),Crop Duration (days),Daily Water (L/ha/day),Soil Type,Soil Moisture,Min Temp,Max temp,Pesticides ,fertilizers ,Min Humidity ,Max Humidity,Yield(Kg),Prize(Summer)
+1,Rice (Paddy),1,1250,5062500,1336000,110,46000,Clayey,flooded,20,40,"Nitrogen (N): Urea, Ammonium Sulphate
+
+Phosphorus (P): Single Super Phosphate (SSP), DAP (Diammonium Phosphate)
+
+Potassium (K): Muriate of Potash (MOP), Potassium Sulphate
+
+Micronutrients (if deficient): Zinc Sulphate, Boron, Iron, Magnesium","Stem Borer: Chlorantraniliprole, Cartap hydrochloride
+
+Brown Plant Hopper (BPH): Imidacloprid, Buprofezin, Thiamethoxam
+
+Leaf Folder: Chlorantraniliprole, Flubendiamide
+
+Gall Midge: Carbofuran, Fipronil",60,95,1100,30
+2,Maize,1,650,2632500,694600,100,26325,Well-drained,Medium,20,30,"Nitrogen (N): Urea, Ammonium Sulphate
+
+Phosphorus (P): DAP (Diammonium Phosphate), SSP (Single Super Phosphate)
+
+Potassium (K): MOP (Muriate of Potash), Potassium Nitrate
+
+Micronutrients (if deficient): Zinc Sulphate, Boron, Magnesium","Stem Borer / Pink Borer: Chlorantraniliprole, Flubendiamide, Spinosad
+
+Fall Armyworm (major pest): Emamectin benzoate, Chlorantraniliprole, Spinetoram
+
+Shoot Fly: Imidacloprid seed treatment, Thiamethoxam spray
+
+Cutworms: Chlorpyrifos, Lambda-cyhalothrin",50,90,1200,23
+3,Finger Millet (Ragi),1,500,2025000,534800,100,20250,Loamy,Medium,20,27,"Nitrogen (N): Urea, Ammonium Sulphate (apply in split doses)
+
+Phosphorus (P): DAP (Diammonium Phosphate), SSP
+
+Potassium (K): Muriate of Potash (MOP)
+
+Micronutrients (if deficient): Zinc Sulphate, Boron","Stem Borer: Chlorantraniliprole, Flubendiamide
+
+Shoot Fly: Thiamethoxam, Imidacloprid (seed treatment & foliar spray)
+
+Cutworms / Armyworms: Spinosad, Lambda-cyhalothrin
+
+White Grub: Chlorpyrifos (soil treatment)",50,85,550,38
+4,Barley,1,400,1620000,427600,100,16200,Well-drained,Medium,10,25,"Nitrogen (N): Urea, Ammonium Sulphate (split doses)
+
+Phosphorus (P): DAP, SSP
+
+Potassium (K): MOP (Muriate of Potash)
+
+Micronutrients: Zinc Sulphate (important in deficient soils), Boron","Aphids: Imidacloprid, Thiamethoxam
+
+Shoot Fly: Chlorpyrifos, Thiamethoxam seed treatment
+
+Armyworm / Cutworm: Lambda-cyhalothrin, Spinosad
+
+Termites (in dry soils): Chlorpyrifos (soil application)",40,75,750,28
+5,Wheat,1,450,1822500,481200,120,15188,Loamy,Medium,15,25,"Nitrogen (N): Urea, Ammonium Sulphate (applied in 3 splits: basal, tillering, and heading stage)
+
+Phosphorus (P): DAP, SSP
+
+Potassium (K): MOP (Muriate of Potash)
+
+Micronutrients: Zinc Sulphate (common deficiency in wheat soils), Sulphur","Aphids: Imidacloprid, Thiamethoxam
+
+Termites: Chlorpyrifos (soil drench at sowing), Fipronil
+
+Armyworm / Cutworm: Lambda-cyhalothrin, Spinosad
+
+Shoot Fly (in some areas): Seed treatment with Thiamethoxam or Imidacloprid",40,75,1100,33
+6,Small Millets,1,400,1620000,427600,100,16200,Well-drained,Medium,20,30,"Nitrogen (N): Urea, Ammonium Sulphate (applied in 2�3 splits depending on rainfall)
+
+Phosphorus (P): DAP, SSP
+
+Potassium (K): MOP (Muriate of Potash)
+
+Micronutrients: Zinc Sulphate (important for flowering & seed setting), Boron","Shoot Fly: Imidacloprid, Thiamethoxam (seed treatment + foliar spray)
+
+Stem Borer: Chlorantraniliprole, Flubendiamide
+
+Armyworm / Cutworm: Lambda-cyhalothrin, Spinosad
+
+White Grub (in some soils): Chlorpyrifos (soil application)",45,80,450,43
+7,Urad (Black Gram),1,400,1620000,427600,70,23143,Sandy,Medium,25,35,"Nitrogen (N): Minimal (since urad is a legume and fixes nitrogen naturally through root nodules). Apply only a starter dose at sowing.
+
+Phosphorus (P): DAP, SSP (important for root development and pod setting).
+
+Potassium (K): MOP (Muriate of Potash) � moderate dose.
+
+Micronutrients: Zinc Sulphate, Boron (for flowering & seed filling).","Pod Borer (Helicoverpa): Chlorantraniliprole, Spinosad, Emamectin benzoate.
+
+Aphids & Jassids: Imidacloprid, Thiamethoxam.
+
+Whitefly (vector of YMV � Yellow Mosaic Virus): Imidacloprid, Acetamiprid.
+
+Stem Fly: Thiamethoxam seed treatment, Lambda-cyhalothrin sprays.",50,85,375,65
+8,Soybean,1,550,2227500,587600,100,22275,medium fertility,Medium,20,30,"Nitrogen (N): Minimal (soybean is a legume; fixes its own nitrogen with Rhizobium bacteria). Apply a small starter dose at sowing.
+
+Phosphorus (P): DAP, SSP (very important for nodulation and seed setting).
+
+Potassium (K): MOP (Muriate of Potash) � needed in moderate amounts.
+
+Micronutrients: Zinc Sulphate, Boron, Molybdenum (for nodulation).
+
+Biofertilizers: Rhizobium and PSB (Phosphate Solubilizing Bacteria) seed treatment.","Stem Fly: Thiamethoxam or Imidacloprid (seed treatment).
+
+Girdle Beetle: Lambda-cyhalothrin, Quinalphos.
+
+Whitefly (spreads YMV): Acetamiprid, Imidacloprid.
+
+Pod Borer / Caterpillars: Chlorantraniliprole, Emamectin benzoate, Spinosad.
+
+Aphids / Jassids: Thiamethoxam, Dimethoate.",50,90,600,48
+9,Rapeseed & Mustard,1,425,1721250,454600,100,17213,medium fertility,Medium,10,25,"Nitrogen (N): Urea, Ammonium Sulphate (apply in 2�3 splits: basal + top dressings).
+
+Phosphorus (P): DAP, SSP (important for flowering & pod setting).
+
+Potassium (K): MOP (Muriate of Potash).
+
+Sulphur (very important): Gypsum, Bentonite Sulphur (oilseed crops require high sulphur for oil content).
+
+Micronutrients: Zinc Sulphate, Boron (for seed setting).","Aphids (major pest): Imidacloprid, Thiamethoxam, Acetamiprid, Dimethoate.
+
+Mustard Sawfly: Chlorpyrifos, Quinalphos, Malathion.
+
+Painted Bug: Malathion, Cypermethrin.
+
+Leaf Webber / Caterpillars: Lambda-cyhalothrin, Spinosad.",50,85,500,53
+10,Orange (Mandarin),1,370,1497000,395500,90,16633,Loamy,Medium,18,30,"Nitrogen (N): Urea, Ammonium Sulphate.
+
+Phosphorus (P): SSP, DAP.
+
+Potassium (K): MOP (Muriate of Potash), Potassium Sulphate (preferred for fruit crops).
+
+Organic Manure: FYM (Farmyard manure) or compost annually.
+
+Micronutrients: Zinc Sulphate, Borax (Boron), Magnesium Sulphate, Iron chelates (Fe-EDDHA/Ferrous Sulphate).","Citrus Psylla (spreads Greening): Imidacloprid, Thiamethoxam, Dimethoate.
+
+Leaf Miner: Chlorantraniliprole, Flubendiamide, Spinosad.
+
+Fruit Fly: Methyl Eugenol traps + Malathion bait sprays.
+
+Aphids / Whiteflies: Acetamiprid, Imidacloprid.
+
+Scale Insects: Chlorpyrifos, Malathion sprays, Horticultural oils.",60,85,5000,50
+11,Large Cardamom ,1,370,1497000,395500,90,16633,high organic,High,15,25,"Organic Manures: FYM (Farmyard Manure), compost, neem cake � very important in cardamom plantations.
+
+Nitrogen (N): Urea, Ammonium Sulphate (split doses).
+
+Phosphorus (P): SSP, DAP.
+
+Potassium (K): MOP (Muriate of Potash).
+
+Micronutrients: Zinc Sulphate, Magnesium Sulphate, Boron (if deficient)","Shoot Borer (major pest): Quinalphos, Lambda-cyhalothrin, Chlorantraniliprole.
+
+Leaf Caterpillar / Hairy Caterpillar: Spinosad, Emamectin benzoate.
+
+Aphids / Thrips: Imidacloprid, Thiamethoxam, Dimethoate.
+
+White Grub (root pest): Chlorpyrifos (soil drench).",70,95,300,1350
+12,Ginger,1,333,1350000,356600,90,15000,high organic,High,22,28,"Organic Manures: FYM (Farmyard Manure), compost, green manure, neem cake (very important for ginger).
+
+Nitrogen (N): Urea, Ammonium Sulphate (split applications).
+
+Phosphorus (P): SSP, DAP.
+
+Potassium (K): MOP (Muriate of Potash), Potassium Sulphate (preferred for rhizome crops).
+
+Micronutrients: Zinc Sulphate, Magnesium Sulphate, Boron","Shoot Borer (main insect pest): Lambda-cyhalothrin, Chlorantraniliprole, Spinosad.
+
+Rhizome Scale / White Grub: Chlorpyrifos (soil treatment).
+
+Aphids / Thrips: Imidacloprid, Thiamethoxam.",70,90,7000,90
+13,Turmeric,1,333,1350000,356600,90,15000,Loamy,High,20,30,"Organic Manures: FYM (Farmyard Manure), compost, green manure, neem cake (very important for rhizome crops).
+
+Nitrogen (N): Urea, Ammonium Sulphate (split doses at 40, 90, 150 days).
+
+Phosphorus (P): SSP, DAP.
+
+Potassium (K): MOP (Muriate of Potash), Potassium Sulphate.
+
+Micronutrients: Zinc Sulphate, Boron, Magnesium Sulphate.","Shoot Borer (major pest): Chlorantraniliprole, Lambda-cyhalothrin, Spinosad.
+
+Rhizome Scale / White Grub: Chlorpyrifos (soil treatment).
+
+Leaf Roller / Beetles: Quinalphos, Thiamethoxam.
+
+Aphids / Thrips: Imidacloprid, Acetamiprid.",70,90,8500,80
+14,Dalle Khursani (Chilli),1,450,1822500,481200,90,20250,Loamy,Medium,20,30,"Organic Manures: FYM (Farmyard Manure), compost, neem cake (important for soil health).
+
+Nitrogen (N): Urea, Ammonium Sulphate (applied in 2�3 splits).
+
+Phosphorus (P): DAP, SSP.
+
+Potassium (K): MOP (Muriate of Potash), Potassium Sulphate (preferred for chilli).
+
+Micronutrients: Zinc Sulphate, Boron, Magnesium Sulphate, Calcium Nitrate (to reduce fruit drop).","Thrips & Mites (major problem in chilli): Imidacloprid, Fipronil, Abamectin, Spinosad.
+
+Fruit Borer / Pod Borer: Emamectin benzoate, Chlorantraniliprole, Spinosad.
+
+Aphids & Whiteflies (spread mosaic & leaf curl viruses): Thiamethoxam, Acetamiprid, Imidacloprid.
+
+Helicoverpa caterpillars: Lambda-cyhalothrin, Indoxacarb",60,85,3000,275
+15,Baby Corn,1,585,2366000,624900,90,26290,Loamy,Medium,20,30,"Organic Manures: FYM, compost, green manure (improves soil fertility).
+
+Nitrogen (N): Urea (applied in 3 splits at sowing, knee-high, and tasseling).
+
+Phosphorus (P): DAP, SSP (at sowing).
+
+Potassium (K): MOP (Muriate of Potash) at sowing and before tasseling.
+
+Micronutrients: Zinc Sulphate, Boron, Magnesium Sulphate, Sulphur.","Stem Borer / Shoot Fly: Chlorantraniliprole, Lambda-cyhalothrin, Emamectin benzoate.
+
+Armyworm / Cutworm: Indoxacarb, Spinosad.
+
+Aphids, Thrips, Jassids: Imidacloprid, Acetamiprid, Thiamethoxam.
+
+Fall Armyworm (serious pest in maize crops): Emamectin benzoate, Chlorantraniliprole.",60,85,4500,110
+16,Potato,1,375,1518750,401000,90,16875,Loamy,Medium,15,25,"Organic Manures: FYM, compost, vermicompost (improves tuber quality).
+
+Nitrogen (N): Urea, Ammonium Sulphate (applied in 2�3 splits).
+
+Phosphorus (P): DAP, SSP (basal application).
+
+Potassium (K): MOP (Muriate of Potash) or Sulphate of Potash (improves tuber size & starch content).
+
+Micronutrients: Zinc Sulphate, Boron, Magnesium Sulphate, Calcium (for tuber firmness).
+
+Biofertilizers: Azotobacter, Phosphate-solubilizing bacteria (PSB).","Aphids (virus carriers): Imidacloprid, Thiamethoxam, Acetamiprid.
+
+Cutworms / Armyworms: Spinosad, Chlorantraniliprole, Indoxacarb.
+
+Whiteflies / Leafhoppers: Fipronil, Imidacloprid.
+
+Tuber Moth (during storage): Malathion dusting, Phosphine fumigation.",60,90,17500,30
+17,Tea,1,296,1196000,315900,90,13290,Loamy,Medium,18,30,"Nitrogen (N): Urea, Ammonium Sulphate (major nutrient, promotes leaf growth).
+
+Phosphorus (P): SSP, DAP (important for root development).
+
+Potassium (K): MOP, Potassium Sulphate (improves shoot and leaf quality).
+
+Organic Manures: FYM, compost, neem cake (maintains soil health).
+
+Micronutrients: Zinc Sulphate, Boron, Magnesium Sulphate, Iron chelates.","Red Spider Mite: Fenpyroximate, Abamectin.
+
+Tea Mosquito Bug (Helopeltis): Imidacloprid, Thiamethoxam, Acephate.
+
+Loopers / Caterpillars: Lambda-cyhalothrin, Bacillus thuringiensis (Bt).
+
+Thrips: Fipronil, Spinosad",70,95,700,125
+18,Tomato,1,450,1822500,481200,90,20250,Loamy,Medium,20,30,"Organic Manures: FYM, compost, vermicompost (improves soil fertility & fruit quality).
+
+Nitrogen (N): Urea, Ammonium Sulphate (split doses; avoid excess to prevent vegetative growth).
+
+Phosphorus (P): SSP, DAP (for root development & early flowering).
+
+Potassium (K): MOP, Potassium Sulphate (enhances fruit size, color, and shelf life).
+
+Micronutrients: Zinc Sulphate, Boron, Magnesium Sulphate, Calcium Nitrate (prevents blossom-end rot).","Aphids, Whiteflies, Thrips: Imidacloprid, Thiamethoxam, Acetamiprid.
+
+Fruit Borer (Helicoverpa): Chlorantraniliprole, Spinosad, Emamectin benzoate.
+
+Leaf Miner / Caterpillars: Lambda-cyhalothrin, Spinosad.
+
+Red Spider Mite: Abamectin, Fenpyroximate.",60,90,17500,70
+19, Broccoli,1,450,1822500,481200,90,20250,Loamy,Medium,18,25,"Organic Manures: FYM, compost, green manure (improves soil fertility and head quality).
+
+Nitrogen (N): Urea, Ammonium Sulphate (split doses; important for vegetative growth).
+
+Phosphorus (P): SSP, DAP (for root development and early head formation).
+
+Potassium (K): MOP (Muriate of Potash), Potassium Sulphate (enhances head quality).
+
+Micronutrients: Zinc Sulphate, Boron, Magnesium Sulphate, Calcium Nitrate (prevents tip burn).","Aphids: Imidacloprid, Thiamethoxam, Acetamiprid.
+
+Cabbage Looper / Caterpillars: Spinosad, Lambda-cyhalothrin, Chlorantraniliprole.
+
+Diamondback Moth: Bacillus thuringiensis (Bt), Spinosad.
+
+Whiteflies: Imidacloprid, Thiamethoxam.",60,90,10000,110
+20,Spinach (Palak),1,750,3037500,801600,90,33750,Loamy,Medium,15,25,"Organic Manures: FYM, compost, vermicompost (improves soil fertility and leaf quality).
+
+Nitrogen (N): Urea, Ammonium Sulphate (high N requirement for leafy growth).
+
+Phosphorus (P): SSP, DAP (for root development).
+
+Potassium (K): MOP (Muriate of Potash) � enhances leaf color and texture.
+
+Micronutrients: Zinc Sulphate, Boron, Magnesium Sulphate (for better leaf quality)","Aphids: Imidacloprid, Thiamethoxam, Acephate.
+
+Leaf Miner: Spinosad, Lambda-cyhalothrin.
+
+Cutworm / Armyworm: Chlorantraniliprole, Indoxacarb.
+
+Whiteflies: Imidacloprid, Acetamiprid",60,90,9000,35
+21,Mustard Greens,1,720,2916000,770000,90,32400,Loamy,Medium,10,25,"Organic Manures: FYM, compost, vermicompost (improves soil fertility and leaf quality).
+
+Nitrogen (N): Urea, Ammonium Sulphate (high N requirement for leafy growth).
+
+Phosphorus (P): SSP, DAP (for root development).
+
+Potassium (K): MOP (Muriate of Potash) � enhances leaf color and texture.
+
+Micronutrients: Zinc Sulphate, Boron, Magnesium Sulphate.","Aphids: Imidacloprid, Thiamethoxam, Acephate.
+
+Diamondback Moth / Caterpillars: Spinosad, Chlorantraniliprole, Lambda-cyhalothrin.
+
+Whiteflies: Imidacloprid, Acetamiprid.
+
+Flea Beetles: Carbaryl, Lambda-cyhalothrin.",55,85,7000,35
+22,Kohlrabi,1,765,3091000,816000,90,34344,Loamy,Medium,15,25,"Organic Manures: FYM, compost, vermicompost (improves soil fertility and bulb quality).
+
+Nitrogen (N): Urea, Ammonium Sulphate (high N requirement for leafy and swollen stem growth).
+
+Phosphorus (P): SSP, DAP (for root and stem development).
+
+Potassium (K): MOP (Muriate of Potash) � enhances bulb quality and stress tolerance.
+
+Micronutrients: Zinc Sulphate, Boron, Magnesium Sulphate.","Aphids: Imidacloprid, Thiamethoxam, Acephate.
+
+Cabbage Worms / Loopers: Spinosad, Chlorantraniliprole, Lambda-cyhalothrin.
+
+Diamondback Moth: Bacillus thuringiensis (Bt), Spinosad.
+
+Flea Beetles: Carbaryl, Lambda-cyhalothrin.",60,90,7000,45
+23,Cabbage,1,810,3283500,866900,90,36483,Loamy,Medium,15,25,"Organic Manures: FYM, compost, vermicompost (improves soil fertility and head quality).
+
+Nitrogen (N): Urea, Ammonium Sulphate (promotes leafy head formation).
+
+Phosphorus (P): SSP, DAP (for root development).
+
+Potassium (K): MOP (Muriate of Potash) � enhances head size and firmness.
+
+Micronutrients: Zinc Sulphate, Boron, Magnesium Sulphate, Calcium Nitrate.","Aphids: Imidacloprid, Thiamethoxam, Acephate.
+
+Cabbage Worms / Loopers: Spinosad, Chlorantraniliprole, Lambda-cyhalothrin.
+
+Diamondback Moth: Bacillus thuringiensis (Bt), Spinosad.
+
+Flea Beetles: Carbaryl, Lambda-cyhalothrin.",60,90,17500,35
+24,Cauliflower,1,810,3283500,866900,90,36483,Loamy,Medium,15,25,"Organic Manures: FYM, compost, vermicompost (improves soil fertility and curd quality).
+
+Nitrogen (N): Urea, Ammonium Sulphate (promotes vegetative growth and curd formation).
+
+Phosphorus (P): SSP, DAP (for root and curd development).
+
+Potassium (K): MOP (Muriate of Potash) � enhances head size, color, and firmness.
+
+Micronutrients: Zinc Sulphate, Boron, Magnesium Sulphate, Calcium Nitrate","Aphids: Imidacloprid, Thiamethoxam, Acephate.
+
+Cabbage Worms / Loopers: Spinosad, Chlorantraniliprole, Lambda-cyhalothrin.
+
+Diamondback Moth: Bacillus thuringiensis (Bt), Spinosad.
+
+Flea Beetles: Carbaryl, Lambda-cyhalothrin.",60,90,13500,45
+25,Radish (Muli),1,600,2430000,641900,90,27000,Loamy,Medium,10,20,"Organic Manures: FYM, compost, vermicompost (improves soil fertility and root quality).
+
+Nitrogen (N): Urea, Ammonium Sulphate (for leafy and root growth).
+
+Phosphorus (P): SSP, DAP (for root development).
+
+Potassium (K): MOP (Muriate of Potash) � enhances root size, color, and taste.
+
+Micronutrients: Boron, Zinc Sulphate, Magnesium Sulphate","Aphids: Imidacloprid, Thiamethoxam, Acephate.
+
+Root Maggots / Flea Beetles: Carbaryl, Lambda-cyhalothrin.
+
+Cabbage Worms / Leaf Miners: Spinosad, Bacillus thuringiensis (Bt).",60,90,7000,25
+26,Pea,1,350,1417500,374600,100,14175,Well-drained,Medium,10,25,"Organic Manures: FYM, compost, vermicompost (improves soil fertility).
+
+Nitrogen (N): Minimal, as peas are legumes and fix nitrogen; small starter dose of Urea may be applied.
+
+Phosphorus (P): SSP, DAP (for root and pod development).
+
+Potassium (K): MOP (Muriate of Potash) � enhances pod formation and quality.
+
+Micronutrients: Zinc Sulphate, Boron, Magnesium Sulphate","Aphids: Imidacloprid, Thiamethoxam, Acephate.
+
+Pod Borer / Caterpillars: Spinosad, Chlorantraniliprole, Lambda-cyhalothrin.
+
+Leaf Miner / Thrips: Acetamiprid, Imidacloprid.",55,85,7000,90
+27,Sweet potato ,1,750,3037500,802000,150,20250,Loamy,Medium,21,26,"Organic Manures: FYM, compost, vermicompost (improves soil structure and tuber quality).
+
+Nitrogen (N): Urea, Ammonium Sulphate (moderate dose; excess N promotes foliage over tubers).
+
+Phosphorus (P): SSP, DAP (for root and tuber development).
+
+Potassium (K): MOP, Potassium Sulphate (high K for better tuber size and sweetness).
+
+Micronutrients: Zinc Sulphate, Boron, Magnesium Sulphate","Sweet Potato Weevil / Wireworms: Carbofuran, Thiamethoxam, Imidacloprid.
+
+Aphids / Whiteflies: Imidacloprid, Thiamethoxam.
+
+Leaf Miner / Caterpillars: Spinosad, Chlorantraniliprole",60,90,13500,35
+28,Chilli,1,600,2430000,642000,150,16200,Well-drained,Medium,20,30,"Organic Manures: FYM, compost, vermicompost (improves soil fertility and fruit quality).
+
+Nitrogen (N): Urea, Ammonium Sulphate (split doses; promotes vegetative growth).
+
+Phosphorus (P): SSP, DAP (for root development and early flowering).
+
+Potassium (K): MOP, Potassium Sulphate (enhances fruit size, color, and pungency).
+
+Micronutrients: Zinc Sulphate, Boron, Magnesium Sulphate, Calcium Nitrate","Aphids / Whiteflies: Imidacloprid, Thiamethoxam, Acephate.
+
+Thrips: Spinosad, Fipronil.
+
+Fruit Borer / Caterpillars: Chlorantraniliprole, Spinosad, Emamectin benzoate.
+
+Red Spider Mite: Abamectin, Fenpyroximate",60,85,3000,275
+29,Litchi,1,1200,4860000,1283000,365,13315,Well-drained,Medium,20,35,"Organic Manures: FYM, compost, neem cake (improves soil fertility and tree health).
+
+Nitrogen (N): Urea, Ammonium Sulphate (applied in splits; promotes vegetative growth).
+
+Phosphorus (P): SSP, DAP (for root development and flowering).
+
+Potassium (K): MOP, Potassium Sulphate (enhances flowering, fruit set, and quality).
+
+Micronutrients: Zinc Sulphate, Boron, Magnesium Sulphate, Iron chelates.","Fruit Fly: Malathion, Thiamethoxam (for fruit protection).
+
+Aphids / Leaf Miners / Thrips: Imidacloprid, Acephate, Spinosad.
+
+Mealy Bugs / Mites: Abamectin, Fenpyroximate.
+
+Shoot Borer: Chlorantraniliprole, Lambda-cyhalothrin.",65,90,3000,90
+30,Onion,1,600,2430000,641900,90,27000,Loamy,Medium,15,25,"Organic Manures: FYM, compost, vermicompost (improves soil fertility and bulb quality).
+
+Nitrogen (N): Urea, Ammonium Sulphate (split doses; promotes vegetative growth).
+
+Phosphorus (P): SSP, DAP (for root and bulb development).
+
+Potassium (K): MOP, Potassium Sulphate (enhances bulb size, color, and storage).","Onion Thrips: Imidacloprid, Thiamethoxam, Spinosad.
+
+Stem / Bulb Maggots: Carbofuran, Thiamethoxam.
+
+Cutworms / Caterpillars: Chlorantraniliprole, Lambda-cyhalothrin.",60,90,13500,35
+31,Guava,1,1000,4050000,1070000,365,11095,Well-drained,Medium,23,28,"Organic Manures: FYM, compost, neem cake (improves soil fertility and tree health).
+
+Nitrogen (N): Urea, Ammonium Sulphate (applied in splits; promotes vegetative growth).
+
+Phosphorus (P): SSP, DAP (for root development and flowering).
+
+Potassium (K): MOP, Potassium Sulphate (enhances flowering, fruit set, size, and quality).
+
+Micronutrients: Zinc Sulphate, Boron, Magnesium Sulphate, Iron chelates.","Fruit Fly: Malathion, Thiamethoxam (for fruit protection).
+
+Aphids / Thrips: Imidacloprid, Acephate, Spinosad.
+
+Guava Whitefly: Imidacloprid, Thiamethoxam.
+
+Shoot / Fruit Borers: Chlorantraniliprole, Lambda-cyhalothrin.",60,85,5000,45
+32,Papaya,1,370,1492000,393800,90,16578,Loamy,Medium,25,30,"Organic Manures: FYM, compost, vermicompost (improves soil fertility and fruit quality).
+
+Nitrogen (N): Urea, Ammonium Sulphate (split doses; promotes vegetative growth).
+
+Phosphorus (P): SSP, DAP (for root development and flowering).
+
+Potassium (K): MOP, Potassium Sulphate (enhances flowering, fruit set, size, and sweetness).
+
+Micronutrients: Zinc Sulphate, Boron, Magnesium Sulphate, Iron chelates","Papaya Fruit Fly: Malathion, Thiamethoxam (for fruit protection).
+
+Aphids / Whiteflies / Thrips: Imidacloprid, Acephate, Spinosad.
+
+Papaya Mealy Bug: Abamectin, Fenpyroximate.
+
+Leaf Miner / Caterpillars: Bacillus thuringiensis (Bt), Spinosad.",65,90,22500,30
+33,Jackfruit,1,1200,4860000,1283000,365,13315,Loamy,Medium,22,32,"Organic Manures: FYM, compost, neem cake (improves soil fertility and tree health).
+
+Nitrogen (N): Urea, Ammonium Sulphate (applied in splits; promotes vegetative growth).
+
+Phosphorus (P): SSP, DAP (for root development and flowering).
+
+Potassium (K): MOP, Potassium Sulphate (enhances flowering, fruit set, size, and sweetness).
+
+Micronutrients: Zinc Sulphate, Boron, Magnesium Sulphate, Iron chelates.","Fruit Borer / Stem Borer: Chlorantraniliprole, Lambda-cyhalothrin.
+
+Aphids / Mealy Bugs / Thrips: Imidacloprid, Acephate, Spinosad.
+
+Fruit Fly: Malathion, Thiamethoxam (protect fruits).",65,90,6000,25
+34,Iskus,1,900,3645000,963000,210,17357,Well-drained,Medium,18,26,"Organic Manures: FYM, compost, neem cake (improves soil fertility and tree health).
+
+Nitrogen (N): Urea, Ammonium Sulphate (split doses; promotes vegetative growth).
+
+Phosphorus (P): SSP, DAP (for root development and flowering).
+
+Potassium (K): MOP, Potassium Sulphate (enhances flowering, fruit set, size, and sweetness).
+
+Micronutrients: Zinc Sulphate, Boron, Magnesium Sulphate, Iron chelates","Aphids / Leaf Miners / Thrips: Imidacloprid, Acephate, Spinosad.
+
+Fruit Fly: Malathion, Thiamethoxam (protect fruits).
+
+Mealy Bugs / Mites: Abamectin, Fenpyroximate.
+
+Citrus Shoot Borer / Caterpillars: Chlorantraniliprole, Lambda-cyhalothrin.",60,85,5500,30
+35,Banana,1,493,1998000,528300,90,22200,alluvial,High,26,30,"Organic Manures: FYM, compost, vermicompost (improves soil structure and fruit quality).
+
+Nitrogen (N): Urea, Ammonium Sulphate (split doses; promotes vegetative growth).
+
+Phosphorus (P): SSP, DAP (for root development and early bunch formation).
+
+Potassium (K): MOP, Potassium Sulphate (high K for fruit size, sweetness, and quality).
+
+Micronutrients: Zinc Sulphate, Boron, Magnesium Sulphate, Iron chelates","Banana Aphids / Thrips: Imidacloprid, Thiamethoxam.
+
+Nematodes: Carbofuran, Neem cake application (soil treatment).
+
+Weevil / Caterpillars: Chlorantraniliprole, Lambda-cyhalothrin.
+
+Mites: Abamectin, Fenpyroximate.",70,95,22500,35
+36,Coriander,1,600,2430000,641900,90,27000,Sandy,Medium,20,25,"Organic Manures: FYM, compost, vermicompost (improves soil fertility and aroma).
+
+Nitrogen (N): Urea, Ammonium Sulphate (split doses; promotes leafy growth).
+
+Phosphorus (P): SSP, DAP (for root development).
+
+Potassium (K): MOP, Potassium Sulphate (improves aroma, quality, and yield).
+
+Micronutrients: Zinc Sulphate, Boron, Magnesium Sulphate.","Aphids / Leaf Miner: Imidacloprid, Thiamethoxam, Acephate.
+
+Cutworms / Caterpillars: Chlorantraniliprole, Lambda-cyhalothrin.
+
+Armyworm / Mites: Abamectin, Fenpyroximate",55,80,1750,90
+37,Pumpkin,1,600,2430000,641900,120,20250,Well-drained,Medium,20,30,"Organic Manures: FYM, compost, vermicompost (improves soil fertility and fruit quality).
+
+Nitrogen (N): Urea, Ammonium Sulphate (split doses; promotes vegetative growth).
+
+Phosphorus (P): SSP, DAP (for root and flowering development).
+
+Potassium (K): MOP, Potassium Sulphate (enhances fruit size, color, and sweetness).
+
+Micronutrients: Zinc Sulphate, Boron, Magnesium Sulphate","Aphids / Whiteflies: Imidacloprid, Thiamethoxam.
+
+Cucumber Beetle / Pumpkin Beetle: Chlorantraniliprole, Lambda-cyhalothrin.
+
+Fruit Fly: Malathion, Thiamethoxam (protect fruits).
+
+Leaf Miner / Caterpillars: Spinosad, Bacillus thuringiensis (Bt).",60,85,13500,25
+38,Brinjal,1,700,2835000,749000,150,18900,Well-drained,Medium,22,30,"Fertilizers (Nutrients for Growth)
+
+Organic Manures: FYM, compost, vermicompost (improves soil fertility and fruit quality).
+
+Nitrogen (N): Urea, Ammonium Sulphate (split doses; promotes vegetative growth).
+
+Phosphorus (P): SSP, DAP (for root development and flowering).
+
+Potassium (K): MOP, Potassium Sulphate (enhances fruit size, color, and quality).
+
+Micronutrients: Zinc Sulphate, Boron, Magnesium Sulphate, Calcium","Aphids / Whiteflies / Thrips: Imidacloprid, Thiamethoxam, Acephate.
+
+Fruit and Shoot Borer: Chlorantraniliprole, Lambda-cyhalothrin, Bacillus thuringiensis (Bt).
+
+Spider Mites: Abamectin, Fenpyroximate.
+
+Leaf Miners / Caterpillars: Spinosad, Bt.",60,85,17500,45
+39,Carrot,1,500,2025000,534800,120,16875,Loamy,Medium,16,24,"Organic Manures: FYM, compost, vermicompost (improves soil structure and root quality).
+
+Nitrogen (N): Urea, Ammonium Sulphate (split doses; promotes root and leafy growth).
+
+Phosphorus (P): SSP, DAP (for strong root development).
+
+Potassium (K): MOP, Potassium Sulphate (enhances root size, color, and sugar content).","Aphids / Leaf Miner: Imidacloprid, Thiamethoxam, Acephate.
+
+Carrot Root Fly / Cutworm: Chlorantraniliprole, Lambda-cyhalothrin.
+
+Caterpillars / Armyworms: Bacillus thuringiensis (Bt), Spinosad.",60,85,11000,45
+40,Anthurium,1,1200,4860000,1283000,365,13315,Well-drained,High,20,28,"Organic Manures: Cocopeat compost, vermicompost, well-decomposed FYM (improves soil structure and flowering).
+
+Nitrogen (N): Urea, Ammonium Sulphate (promotes vegetative growth).
+
+Phosphorus (P): SSP, DAP (for root development and flowering).
+
+Potassium (K): MOP, Potassium Sulphate (enhances flower size, color, and longevity).
+
+Micronutrients: Magnesium Sulphate, Iron chelates, Boron, Zinc Sulphate.","Aphids / Mealy Bugs / Thrips: Imidacloprid, Acephate, Spinosad.
+
+Spider Mites: Abamectin, Fenpyroximate.
+
+Whiteflies: Imidacloprid, Thiamethoxam.",70,90,110000,60
+41,Cymbidium,1,1000,4050000,1070000,365,11095,Well-drained,High,15,25,"Organic Manures: Well-decomposed compost, leaf mold, cocopeat (improves soil aeration and moisture retention).
+
+Nitrogen (N): Urea, Ammonium Sulphate (promotes vegetative growth).
+
+Phosphorus (P): SSP, DAP (supports root development and flowering).
+
+Potassium (K): MOP, Potassium Sulphate (enhances flower size, color, and longevity).
+
+Micronutrients: Magnesium Sulphate, Iron chelates, Boron, Zinc Sulphate","Aphids / Mealy Bugs / Thrips: Imidacloprid, Acephate, Spinosad.
+
+Spider Mites: Abamectin, Fenpyroximate.
+
+Scale Insects / Whiteflies: Imidacloprid, Thiamethoxam.",70,90,27500,125
+42,Rose,1,900,3645000,963000,365,9986,Well-drained,High,18,28,"Organic Manures: Well-decomposed FYM, compost, vermicompost (improves soil structure and flower quality).
+
+Nitrogen (N): Urea, Ammonium Sulphate (promotes vegetative growth and lush leaves).
+
+Phosphorus (P): SSP, DAP (supports root development and flowering).
+
+Potassium (K): MOP, Potassium Sulphate (enhances flower size, color, and vase life).
+
+Micronutrients: Magnesium Sulphate, Boron, Zinc Sulphate, Iron chelates","Aphids / Thrips / Whiteflies: Imidacloprid, Acephate, Spinosad.
+
+Spider Mites: Abamectin, Fenpyroximate.
+
+Mealy Bugs / Scale Insects: Imidacloprid, Thiamethoxam",60,85,90000,25
+43,Pasinon fruit,1,1100,4455000,1176000,365,12205,Well-drained,High,20,30,"Organic Manures: Well-decomposed FYM, compost, leaf mold (improves soil fertility and tree health).
+
+Nitrogen (N): Urea or Ammonium Sulphate (promotes vegetative growth).
+
+Phosphorus (P): SSP, DAP (supports root development and flowering).
+
+Potassium (K): MOP, Potassium Sulphate (enhances fruit size, sweetness, and quality).
+
+Micronutrients: Boron, Zinc Sulphate, Magnesium Sulphate (important for fruiting and leaf health).","Aphids / Thrips / Leaf Miners: Imidacloprid, Thiamethoxam.
+
+Fruit Flies / Caterpillars: Malathion, Bacillus thuringiensis (Bt).
+
+Mealy Bugs / Mites: Abamectin, Fenpyroximate.",65,90,2500,80

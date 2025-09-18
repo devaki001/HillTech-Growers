@@ -1,0 +1,209 @@
+{% extends "base.html" %}
+
+{% block title %}{{ _("Alerts & Updates - Smart Agriculture") }}{% endblock %}
+
+{% block content %}
+<div class="alerts-container">
+  <header class="alerts-header">
+    <div class="header-content">
+      <div class="header-left">
+        <a href="{{ url_for('dashboard') }}" class="back-btn">
+          <i class="fas fa-arrow-left"></i>
+          {{ _("Back to Dashboard") }}
+        </a>
+        <div class="logo">
+          <i class="fas fa-mountain"></i>
+        </div>
+        <div class="header-text">
+          <h1>{{ _("Alerts & Updates") }}</h1>
+          <p>{{ _("System Notifications & Status") }}</p>
+        </div>
+      </div>
+
+      <div class="header-right" style="display:flex;align-items:center;gap:.75rem;">
+
+
+        <!-- Alert bell -->
+        <div class="alert-indicator" title="{{ _('High priority alerts') }}">
+          <i class="fas fa-bell"></i>
+          <span class="alert-count">
+            {{ alerts | selectattr('severity', 'equalto', 'high') | list | length }}
+          </span>
+        </div>
+
+<!--        &lt;!&ndash; Run Alerts button &ndash;&gt;-->
+<!--        <button id="run-alerts" class="btn btn-primary" style="display:flex;align-items:center;gap:.5rem;">-->
+<!--          <i class="fas fa-bolt"></i>-->
+<!--          {{ _("Run Alerts") }}-->
+<!--        </button>-->
+      </div>
+    </div>
+  </header>
+
+  <main class="alerts-main">
+    <!-- Filter Tabs -->
+    <div class="filter-tabs">
+      <button class="filter-tab active" data-filter="all">
+        {{ _("All Alerts") }} <span class="tab-count">{{ alerts | length }}</span>
+      </button>
+      <button class="filter-tab" data-filter="irrigation">
+        {{ _("Irrigation") }}
+        <span class="tab-count">
+          {{ alerts | selectattr('category', 'equalto', 'irrigation') | list | length }}
+        </span>
+      </button>
+      <button class="filter-tab" data-filter="weather">
+        {{ _("Weather") }}
+        <span class="tab-count">
+          {{ alerts | selectattr('category', 'equalto', 'weather') | list | length }}
+        </span>
+      </button>
+<!--      <button class="filter-tab" data-filter="temperature">-->
+<!--        {{ _("Temperature") }}-->
+<!--        <span class="tab-count">-->
+<!--          {{ alerts | selectattr('category', 'equalto', 'temperature') | list | length }}-->
+<!--        </span>-->
+<!--      </button>-->
+      <button class="filter-tab" data-filter="water">
+        {{ _("Water") }}
+        <span class="tab-count">
+          {{ alerts | selectattr('category', 'equalto', 'water') | list | length }}
+        </span>
+      </button>
+<!--      <button class="filter-tab" data-filter="system">-->
+<!--        {{ _("System") }}-->
+<!--        <span class="tab-count">-->
+<!--          {{ alerts | selectattr('category', 'equalto', 'system') | list | length }}-->
+<!--        </span>-->
+<!--      </button>-->
+    </div>
+
+    <!-- Alerts List -->
+    <div class="alerts-list">
+      {% if alerts and alerts|length > 0 %}
+        {% for alert in alerts %}
+          <div class="alert-card {{ alert.type }}-alert" data-category="{{ alert.category }}">
+            <div class="alert-icon">
+              {% if alert.type == 'warning' %}
+                <i class="fas fa-exclamation-triangle"></i>
+              {% elif alert.type == 'success' %}
+                <i class="fas fa-check-circle"></i>
+              {% elif alert.icon %}
+                <span style="font-size:1.25rem;">{{ alert.icon }}</span>
+              {% else %}
+                <i class="fas fa-info-circle"></i>
+              {% endif %}
+            </div>
+
+            <div class="alert-content">
+              <div class="alert-header">
+                <h4>{{ alert.title }}</h4>
+                <div class="alert-meta">
+                  <span class="alert-category">
+                    {% if alert.category == 'irrigation' or alert.category == 'water' %}
+                      <i class="fas fa-tint"></i>
+                    {% elif alert.category == 'temperature' %}
+                      <i class="fas fa-thermometer-half"></i>
+                    {% elif alert.category == 'weather' %}
+                      <i class="fas fa-cloud"></i>
+                    {% elif alert.category == 'system' %}
+                      <i class="fas fa-cog"></i>
+                    {% endif %}
+                    {{ _(alert.category|title) }}
+                  </span>
+                </div>
+              </div>
+
+              <p class="alert-message">{{ alert.message }}</p>
+
+              {% if alert.recommendation %}
+              <div class="alert-reco">
+                <i class="fas fa-lightbulb"></i>
+                <span>{{ _("Recommendation") }}: {{ alert.recommendation }}</span>
+              </div>
+              {% endif %}
+
+              <div class="alert-footer">
+                <span class="alert-time">
+                  <i class="fas fa-clock"></i>
+                  {{ alert.timestamp }}
+                </span>
+                <span class="alert-severity {{ alert.severity }}-priority">
+                  {{ _(alert.severity|title) }} {{ _("priority") }}
+                </span>
+              </div>
+            </div>
+          </div>
+        {% endfor %}
+      {% else %}
+        <!-- Empty state -->
+        <div class="empty-alerts" style="text-align:center;padding:2rem;border:1px dashed #d1d5db;border-radius:12px;">
+          <p style="font-size:1.1rem;margin-bottom:.5rem;">
+            {{ _("No alerts yet.") }}
+          </p>
+          <p style="color:#6b7280;margin-bottom:1rem;">
+            {{ _("Press ‘Run Alerts’ to check water tank, weather, and irrigation recommendations now.") }}
+          </p>
+          <button id="run-alerts-empty" class="btn btn-primary">
+            <i class="fas fa-bolt"></i> {{ _("Run Alerts") }}
+          </button>
+        </div>
+      {% endif %}
+    </div>
+
+    <!-- Summary Statistics -->
+    <div class="alert-summary">
+      <div class="summary-card high-priority">
+        <h4>{{ _("High Priority") }}</h4>
+        <p class="summary-number">
+          {{ alerts | selectattr('severity', 'equalto', 'high') | list | length }}
+        </p>
+        <p class="summary-text">{{ _("Requires immediate attention") }}</p>
+      </div>
+      <div class="summary-card medium-priority">
+        <h4>{{ _("Medium Priority") }}</h4>
+        <p class="summary-number">
+          {{ alerts | selectattr('severity', 'equalto', 'medium') | list | length }}
+        </p>
+        <p class="summary-text">{{ _("Monitor closely") }}</p>
+      </div>
+      <div class="summary-card system-status">
+        <h4>{{ _("System Status") }}</h4>
+        <p class="summary-number">{{ _("Healthy") }}</p>
+        <p class="summary-text">{{ _("All systems operational") }}</p>
+      </div>
+    </div>
+  </main>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+  // Wire both buttons (header + empty-state) to the same action
+  async function runAlertsNow(btn) {
+    if (!btn) return;
+    const original = btn.innerHTML;
+    btn.disabled = true;
+    btn.innerHTML = '<i class="fas fa-sync fa-spin"></i> {{ _("Running...") }}';
+    try {
+      const resp = await fetch('{{ url_for("api_run_alerts") }}', { method: 'POST' });
+      if (!resp.ok) throw new Error('failed');
+      // Reload to show new alerts
+      window.location.reload();
+    } catch (e) {
+      alert('{{ _("Failed to run alerts.") }}');
+      btn.disabled = false;
+      btn.innerHTML = original;
+    }
+  }
+
+  document.addEventListener('DOMContentLoaded', () => {
+    const headerBtn = document.getElementById('run-alerts');
+    const emptyBtn  = document.getElementById('run-alerts-empty');
+    if (headerBtn) headerBtn.addEventListener('click', () => runAlertsNow(headerBtn));
+    if (emptyBtn)  emptyBtn.addEventListener('click',  () => runAlertsNow(emptyBtn));
+  });
+</script>
+
+<script src="{{ url_for('static', filename='js/alerts.js') }}"></script>
+{% endblock %}
