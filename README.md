@@ -158,9 +158,20 @@ Your CSV should contain at least:
 
 ## 📸 Screens (expected)
 - **Login/Register**
+- <img width="1902" height="888" alt="image" src="https://github.com/user-attachments/assets/7a5c0e57-62cc-45e7-a2c3-bfa2f1cf8f69" />
+
 - **Dashboard** with soil/weather/tank/crops
+- <img width="1047" height="830" alt="Screenshot 2025-09-18 170517" src="https://github.com/user-attachments/assets/f79a83a3-5483-44f1-abf0-ca67a1e96e99" />
+
+- <img width="1209" height="849" alt="Screenshot 2025-09-18 170345" src="https://github.com/user-attachments/assets/d98d690a-19b7-4057-a610-bf1a5d28c37c" />
+
 - **Alerts Page**
+- <img width="1074" height="760" alt="Screenshot 2025-09-18 170541" src="https://github.com/user-attachments/assets/6089db7a-dad4-43bb-934f-3c22460a1e33" />
+
 - **Water Calculator**
+- <img width="1143" height="860" alt="Screenshot 2025-09-18 170833" src="https://github.com/user-attachments/assets/ac298dfa-4ad5-4f2d-a330-615ac8c38dbb" />
+
 - **Crop Detail with profit/water analysis**
+
 - <img width="1143" height="860" alt="Screenshot 2025-09-18 170833" src="https://github.com/user-attachments/assets/130c62f1-b357-40f0-b0ea-16571d118898" />
 
