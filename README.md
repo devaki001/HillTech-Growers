@@ -162,3 +162,5 @@ Your CSV should contain at least:
 - **Alerts Page**
 - **Water Calculator**
 - **Crop Detail with profit/water analysis**
+- <img width="1143" height="860" alt="Screenshot 2025-09-18 170833" src="https://github.com/user-attachments/assets/130c62f1-b357-40f0-b0ea-16571d118898" />
+
