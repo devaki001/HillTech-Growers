@@ -172,6 +172,5 @@ Your CSV should contain at least:
 - <img width="1143" height="860" alt="Screenshot 2025-09-18 170833" src="https://github.com/user-attachments/assets/ac298dfa-4ad5-4f2d-a330-615ac8c38dbb" />
 
 - **Crop Detail with profit/water analysis**
-
-- <img width="1143" height="860" alt="Screenshot 2025-09-18 170833" src="https://github.com/user-attachments/assets/130c62f1-b357-40f0-b0ea-16571d118898" />
+- <img width="1184" height="892" alt="Screenshot 2025-09-18 170815" src="https://github.com/user-attachments/assets/fabd2672-b572-4884-b822-f3900c693f7d" />
 
