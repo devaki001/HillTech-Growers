@@ -5,6 +5,8 @@
 User Id : 001
 password :12345
 
+-- **Arduino code** is inside : hillTech.ino
+
 # 🌱 Smart Agriculture Platform
 
 A Flask-based smart agriculture web application for farmers, integrating:
